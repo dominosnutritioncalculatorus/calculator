@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculate nutritional information for your Domino's Pizza order. Track calories, carbs, fat, and protein for pizzas, sides, desserts, and drinks.">
+    <meta name="keywords" content="Domino's, nutrition calculator, pizza nutrition, calories, nutritional information">
+    <title>Domino's Nutrition Calculator</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="theme-toggle">
+        <button id="themeToggle" aria-label="Toggle dark mode">
+            <span class="theme-icon">🌙</span>
+        </button>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>🍕 Domino's Nutrition Calculator</h1>
+            <p class="subtitle">Calculate nutritional information for your Domino's order</p>
+        </header>
+
+        <div class="calculator-container">
+            <div class="menu-section">
+                <h2>Build Your Order</h2>
+                
+                <div class="form-group">
+                    <label for="category">Category</label>
+                    <select id="category" class="form-control">
+                        <option value="">Select a category</option>
+                        <option value="pizzas">Pizzas</option>
+                        <option value="sides">Sides</option>
+                        <option value="desserts">Desserts</option>
+                        <option value="drinks">Drinks</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="item">Menu Item</label>
+                    <select id="item" class="form-control" disabled>
+                        <option value="">Select a category first</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="size">Size</label>
+                    <select id="size" class="form-control">
+                        <option value="small">Small</option>
+                        <option value="medium">Medium</option>
+                        <option value="large">Large</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="quantity">Quantity</label>
+                    <input type="number" id="quantity" class="form-control" value="1" min="1" max="20">
+                </div>
+
+                <button id="addItem" class="btn btn-primary">Add to Order</button>
+            </div>
+
+            <div class="order-section">
+                <div class="order-header">
+                    <h2>Your Order</h2>
+                    <button id="resetOrder" class="btn btn-secondary">Reset</button>
+                </div>
+                
+                <div id="orderItems" class="order-items">
+                    <p class="empty-order">No items added yet. Start building your order!</p>
+                </div>
+
+                <div class="nutrition-summary">
+                    <h3>Nutritional Total</h3>
+                    <div class="nutrition-grid">
+                        <div class="nutrition-item">
+                            <span class="nutrition-label">Calories</span>
+                            <span class="nutrition-value" id="totalCalories">0</span>
+                        </div>
+                        <div class="nutrition-item">
+                            <span class="nutrition-label">Carbs</span>
+                            <span class="nutrition-value" id="totalCarbs">0g</span>
+                        </div>
+                        <div class="nutrition-item">
+                            <span class="nutrition-label">Fat</span>
+                            <span class="nutrition-value" id="totalFat">0g</span>
+                        </div>
+                        <div class="nutrition-item">
+                            <span class="nutrition-label">Protein</span>
+                            <span class="nutrition-value" id="totalProtein">0g</span>
+                        </div>
+                    </div>
+                    <button id="shareResults" class="btn btn-share">📋 Copy Results</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="disclaimer">
+            <h3>⚠️ Disclaimer</h3>
+            <p>This calculator is an independent tool and is not affiliated with Domino's Pizza. Nutritional values are estimates and may vary based on preparation methods and specific ingredients.</p>
+        </div>
+
+        <footer>
+            <p>Source of Nutritional Data: <a href="https://dominosnutritioncalculator.us/" target="_blank" rel="noopener noreferrer">https://dominosnutritioncalculator.us/</a></p>
+            <p class="footer-note">Created with ❤️ for nutrition-conscious pizza lovers</p>
+        </footer>
+    </div>
+
+    <div id="toast" class="toast"></div>
+
+    <script src="nutrition-data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
